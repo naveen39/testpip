@@ -104,7 +104,9 @@
 	       </body>
 <script>
     function codeAddress() {
-	    alert('ok'+{{instance_url}});
+	    alert('ok');
+	    var a={{instance_url}};
+	    alert(a)
         $Lightning.use("c:LightningOutApp", function() {
             $Lightning.createComponent("c:outcmp", {
                     borderColor: "#16325c",
