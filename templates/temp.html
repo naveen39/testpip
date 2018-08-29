@@ -99,34 +99,34 @@
 	</div>
 
 	</div>
+	      <div style="width:100%;height:100px;" id="FlipcardContainer" />
 	      {{instance_url}}---{{access_token}}
-	       <script>
-		   		    }
-		    
-function setupLightning() {
-	    $Lightning.use("c:LightningOutApp", function() {
-		 $Lightning.createComponent("c:outcmp",
-		 { 
-			 borderColor : "#16325c", 
-			 bgColor : "#16325c" ,
-			 fontColor : "#FFF",
-			 frontText : "What's cool about Lightning Component Development",
-			 backText : "You dont need to enable Lightning experience, It will work on Classic Instance as well"
-		 },
-		 "FlipcardContainer",
-		 function(cmp) {
-		 alert('Component created, do something cool here');
-		 });
- } );
-}
-	    
-	    if(true){
-	    alert('start');
-	    setupLightning();
-	    alert('end');
-	    }
-	    </script>
-	<div style="width:100%;height:100px;" id="FlipcardContainer" />
-  </body>
+	       </body>
+<script>
+    function setupLightning() {
+        $Lightning.use("c:LightningOutApp", function() {
+            $Lightning.createComponent("c:outcmp", {
+                    borderColor: "#16325c",
+                    bgColor: "#16325c",
+                    fontColor: "#FFF",
+                    frontText: "What's cool about Lightning Component Development",
+                    backText: "You dont need to enable Lightning experience, It will work on Classic Instance as well"
+                },
+                "FlipcardContainer",
+                function(cmp) {
+                    alert('Component created, do something cool here');
+                });
+        });
+    }
+
+    if (true) {
+        alert('start');
+        setupLightning();
+        alert('end');
+    }
+</script>
+	
+ 
+ <script src="https://componentdemo-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
 </html>
 {% endblock %}
