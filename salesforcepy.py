@@ -403,6 +403,11 @@ def accounts(name=None):
     headers = {
     'authorization': "OAuth "+str(access_token),
     'content-type': "application/x-www-form-urlencoded",
+      'Access-Control-Allow-Origin', '*',
+      'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization,X-Authorization',
+      'Access-Control-Allow-Methods', '*',
+      'Access-Control-Expose-Headers', 'X-Api-Version, X-Request-Id, X-Response-Time',
+      'Access-Control-Max-Age', '1000'
     }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
     ac_data=Ac_response.json()
