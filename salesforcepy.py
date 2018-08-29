@@ -280,7 +280,7 @@ def getcode():
                   con.commit()
                   con.close()
                   accounts(session['username'])
-                  return render_template('home.html',success='Connected Successfully')
+                  return render_template('home.html',success='Connected Successfully',instance_url=instance_url,access_token=access_token)
               else:
                   return render_template('home.html',error=str(response.text))
           return render_template('home.html',error=str(response.text))
@@ -349,7 +349,7 @@ def access_token(code):
                 con.commit()
                 con.close()
                 accounts(session['username'])
-                return render_template('home.html')
+                return render_template('home.html',instance_url=instance_url,access_token=access_token)
             else:
                 return render_template('home.html',error=str(response.text))
         return render_template('home.html',error=str(response.text))
@@ -424,7 +424,7 @@ def accounts(name=None):
             print('error block \n')
             return generate_token(instance_url,refresh_token,query)
     else:
-        return render_template('temp.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found')
+        return render_template('temp.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found',instance_url=instance_url,access_token=access_token)
     
             
 def generate_token(instance_url,refresh_token,query):
