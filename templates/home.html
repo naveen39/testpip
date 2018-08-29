@@ -53,13 +53,16 @@
     <h3>This is the home page for the SFPY app<h3>
 	
   </div>
-	    <div style="width:100%;height:100px;" id="FlipcardContainer" />
+	    
   <form  method="post" align="center" > 
 	  <input type="submit" value="ConnectToSalesforce" class="button"  />
 	  
 	 </form>
 	    {{instance_url}}----{{access_token}}
 	    <script>
+		   		    }
+		    
+function setupLightning() {
 	    $Lightning.use("c:LightningOutApp", function() {
 		 $Lightning.createComponent("c:outcmp",
 		 { 
@@ -74,8 +77,15 @@
 		 console.log('Component created, do something cool here');
 		 });
  },instance_url,access_token );
+}
+	    
+	    if(true){
+	    alert('start');
+	    setupLightning();
+	    alert('end');
+	    }
 	    </script>
-	
+	<div style="width:100%;height:100px;" id="FlipcardContainer" />
   </body>
 </html>
   
