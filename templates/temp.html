@@ -52,7 +52,7 @@
    {% if error %}
       <p style="color:red"><strong>Error:</strong> <b>{{ error }}</b>
       {% endif %}
-  <body> 
+  <body  onload="codeAddress();"> 
   {% with messages = get_flashed_messages() %}
          {% if messages %}
             <ul>
@@ -103,7 +103,8 @@
 	      {{instance_url}}---{{access_token}}
 	       </body>
 <script>
-    function setupLightning() {
+    function codeAddress() {
+	    alert('ok');
         $Lightning.use("c:LightningOutApp", function() {
             $Lightning.createComponent("c:outcmp", {
                     borderColor: "#16325c",
@@ -118,12 +119,7 @@
                 });
         });
     }
-setupLightning();
-    if (true) {
-        alert('start');
-        setupLightning();
-        alert('end');
-    }
+
 </script>
 	
  
