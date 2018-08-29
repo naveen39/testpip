@@ -106,6 +106,7 @@
     function codeAddress() {
 	    alert('ok');
 	     var instance_url = {{ instance_url|tojson }};
+	instance_url=instance_url.replace("my.salesforce", "lightning.force");
 	  var access_token = {{ access_token|tojson }};
 	alert(instance_url+' '+access_token);
 	    
