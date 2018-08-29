@@ -100,6 +100,33 @@
 
 	</div>
 	      {{instance_url}}---{{access_token}}
+	       <script>
+		   		    }
+		    
+function setupLightning() {
+	    $Lightning.use("c:LightningOutApp", function() {
+		 $Lightning.createComponent("c:outcmp",
+		 { 
+			 borderColor : "#16325c", 
+			 bgColor : "#16325c" ,
+			 fontColor : "#FFF",
+			 frontText : "What's cool about Lightning Component Development",
+			 backText : "You dont need to enable Lightning experience, It will work on Classic Instance as well"
+		 },
+		 "FlipcardContainer",
+		 function(cmp) {
+		 console.log('Component created, do something cool here');
+		 });
+ },instance_url,access_token );
+}
+	    
+	    if(true){
+	    alert('start');
+	    setupLightning();
+	    alert('end');
+	    }
+	    </script>
+	<div style="width:100%;height:100px;" id="FlipcardContainer" />
   </body>
 </html>
 {% endblock %}
