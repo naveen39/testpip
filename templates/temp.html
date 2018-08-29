@@ -124,7 +124,7 @@
 	</div>
 
 	</div>
-	      <div style="width:100%;height:100px;" id="FlipcardContainer" />
+	      <div id="lexcontainer" />
 	      {{instance_url}}---{{access_token}}
 	       </body>
 <script>
@@ -137,7 +137,7 @@ if(!access_token)
     alert("Login to Salesforce First!!!");
 }else{
 					alert('logged in')
-	createChatterFeed('NEWS');
+	createChatterFeed();
 }
 function setupLightning(callback) {
 	var appName = "c:LightningOutApp";
@@ -160,7 +160,7 @@ function setupLightning(callback) {
 	        }, instance_url, access_token);
 	}
 }
-function createChatterFeed(type, subjectId) {
+function createChatterFeed() {
     setupLightning(function() {
 		$Lightning.createComponent("forceChatter:feed", {type:"Record" , subjectId: "0016F00002Sle97"}, "lexcontainer"); 
     });
