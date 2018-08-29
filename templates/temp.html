@@ -105,6 +105,8 @@
 <script>
     function codeAddress() {
 	    alert('ok');
+	     var instance_url = {{ instance_url|tojson }};
+	alert(instance_url);
 	    
         $Lightning.use("c:LightningOutApp", function() {
             $Lightning.createComponent("c:outcmp", {
