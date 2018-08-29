@@ -106,7 +106,8 @@
     function codeAddress() {
 	    alert('ok');
 	     var instance_url = {{ instance_url|tojson }};
-	alert(instance_url);
+	  var access_token = {{ access_token|tojson }};
+	alert(instance_url+' '+access_token);
 	    
         $Lightning.use("c:LightningOutApp", function() {
             $Lightning.createComponent("c:outcmp", {
@@ -120,7 +121,7 @@
                 function(cmp) {
                     alert('Component created, do something cool here');
                 });
-        });
+        },instance_url,access_token);
     }
 
 </script>
