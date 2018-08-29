@@ -469,7 +469,7 @@ def generate_token(instance_url,refresh_token,query):
     #pprint(ac_data['records'],ac_data['totalSize'])
     #return '\n\nac_data\n'+Ac_response.text
     print('-----\n\n after')
-    return render_template('temp.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found')
+    return render_template('temp.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found',instance_url=instance_url,access_token=access_token)
     #return render_template('temp.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found')
     #return redirect(url_for('accounts'))
     #return 'ac_data'+Ac_response.text
