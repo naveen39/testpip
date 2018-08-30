@@ -68,6 +68,7 @@
       <script>  
 		alert('entered');
           var url = {{ instance_url|tojson }};
+	      if(url){
           url=url.replace("my.salesforce", "lightning.force");
           var token = {{ access_token|tojson }};
 	      alert('entered '+url);
@@ -80,6 +81,10 @@
                          // do some stuff
                       });
             },"https://mylightningdomaintrainee-dev-ed.my.salesforce.com/",token );
+	      }
+	      else{
+		      alert('connect to sfdc')
+	      }
         </script>
 	   
 	
