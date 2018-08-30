@@ -461,9 +461,12 @@ def generate_token(instance_url,refresh_token,query):
     headers = {
       'authorization': "OAuth "+str(access_token),
       'content-type': "application/x-www-form-urlencoded",
-      'Access-Control-Allow-Origin':'*'
+      
       }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
+    Ac_response.headers['Access-Control-Allow-Origin'] = '*'
+    #Ac_response['Access-Control-Allow-Methods'] = get_methods()
+    #Ac_response['Access-Control-Max-Age'] = str(max_age)
     ac_data=Ac_response.json()
     print(Ac_response.headers)
     print(type(ac_data),'after acess token get')
