@@ -10,7 +10,7 @@
 	<script src="https://mylightningdomaintrainee-dev-ed.my.salesforce.com/lightning/lightning.out.js"></script>
 		<script>
 		
-		var access_token = {{ access_token|tojson }};
+		/*var access_token = {{ access_token|tojson }};
 			alert('enetred to test');
 			if(!access_token)
 			{ 
@@ -32,13 +32,39 @@
 				'https://mylightningdomaintrainee-dev-ed.my.salesforce.com/',  // Community endpoint
 				access_token
 			);
-			}
+			}*/
 		</script>
-		<body>
+		</head/>
 		
-		<div id="lightningLocator"/> 
-		</body>
+		
+<body >
+    <header>
+    </header>
+    <main>
+      <div >
+        <p>Sales Leaderboard On Heroku</p>
+        <div id="leaderboard"></div>
+          </div>
+      </main>
+        <footer>
+        </footer>
+        <script>
+		alert('entered');
+          var url = {{ instance_url|tojson }};
+          var token = "Bearer "+{{ access_token|tojson }};
+          console.log(token);
+            $Lightning.use("c:helloApp", function() {
+                  $Lightning.createComponent("c:helloCmp", {},
+                     "leaderboard",
+                      function(cmp) {
+					  alert('cmp');
+                         // do some stuff
+                      });
+            },url,token );
+        </script>
+</body> 
+		
 
-	</head>
+	
 </html>
 {% endblock %}
