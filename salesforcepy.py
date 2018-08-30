@@ -324,7 +324,6 @@ def access_token(code):
         print(response,'access_token response',response.text)
         #print(response.params)
         print(response.headers)
-        response.headers['Access-Control-Allow-Origin'] = '*'
         data=response.json()
         print(data,'error' in data,"'refresh_token' in data'",'refresh_token' in data)
         #return response.text
@@ -404,11 +403,9 @@ def accounts(name=None):
     headers = {
     'authorization': "OAuth "+str(access_token),
     'content-type': "application/x-www-form-urlencoded",
-    'Access-Control-Allow-Origin' = '*',
       
     }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
-    Ac_response.headers['Access-Control-Allow-Origin'] = "*"
     ac_data=Ac_response.json()
     
     #print('type(ac_data)',type(ac_data),"\n\n'error' in ac_data,query",'error' in ac_data,query,"\n'errorCode' in ac_data",'errorCode' in ac_data,'\n',ac_data)
@@ -443,8 +440,8 @@ def generate_token(instance_url,refresh_token,query):
   response2 = requests.request("POST", url, params=querystring)
   print(response2,'generate_token \n',response2.text)
   #print(response.params)
+  response2.headers['Access-Control-Allow-Origin'] = '*'
   print(response2.headers)
-  response2.headers['Access-Control-Allow-Origin'] = "*"
   data2=response2.json()
   #pprint(data2)
   if 'access_token' in data2:
@@ -465,7 +462,7 @@ def generate_token(instance_url,refresh_token,query):
     headers = {
       'authorization': "OAuth "+str(access_token),
       'content-type': "application/x-www-form-urlencoded",
-      'Access-Control-Allow-Origin' = "*",
+      
       }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
     Ac_response.headers['Access-Control-Allow-Origin'] = '*'
