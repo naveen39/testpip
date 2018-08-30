@@ -284,11 +284,11 @@ def getcode():
                   return render_template('lightningout.html',success='Connected Successfully',instance_url=instance_url,access_token=access_token)
               else:
                   return render_template('lightningout.html',error=str(response.text))
-          return render_template('home.html',error=str(response.text))
+          return render_template('lightningout.html',error=str(response.text))
       
         
     except Exception as e:
-        return render_template('home.html',error=str(e))
+        return render_template('lightningout.html',error=str(e))
         
     #return render_template('lightningout.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found')
     #return "hello"+str(code)
