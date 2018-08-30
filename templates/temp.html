@@ -7,6 +7,8 @@
 {% block content %}
  <html>
   <head>
+	  <script src="https://mylightningdomaintrainee-dev-ed.my.salesforce.com/lightning/lightning.out.js"></script>
+
     <title> Title </title>
 	
 	<style>
@@ -157,12 +159,19 @@ function setupLightning(callback) {
 				if (typeof callback === "function") {
 					callback();
 				}
-	        }, instance_url, access_token);
+	        }, "https://mylightningdomaintrainee-dev-ed.my.salesforce.com", access_token);
 	}
 }
 function createChatterFeed() {
+								  alert('chatfeed')
     setupLightning(function() {
-		$Lightning.createComponent("forceChatter:feed", {type:"Record" , subjectId: "0016F00002Sle97"}, "lexcontainer"); 
+		$Lightning.createComponent("c:Lookup", {objectName="Product2",
+                          field_API_text="Name",
+                          field_API_val="Id",
+                          limit="4",
+                          field_API_search="Name",
+                          lookupIcon="standard:product" ,                          
+                          placeholder="Enter text to search Products"}, "lexcontainer"); 
     });
 }
 	
@@ -177,6 +186,6 @@ function createChatterFeed() {
  </style>
 	
  
- <script src="https://componentdemo-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
+ <script src="https://mylightningdomaintrainee-dev-ed.my.salesforce.com/lightning/lightning.out.js"></script>
 </html>
 {% endblock %}
