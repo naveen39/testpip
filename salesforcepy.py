@@ -132,7 +132,7 @@ def Signup():
             return render_template('Signup.html',error=error)
         
     else:
-      return render_template('Signup.html',error=error)
+      return render_template('lightningout.html',error=error)
       
       
       
@@ -221,7 +221,7 @@ def loginhome(name):
         #print(response.headers)
         return response.text
     else:
-        return render_template('home.html',error=error)
+        return render_template('lightningout.html',error=error)
 
 #@app.route('/getcode', defaults={'code': None})
 @app.route('/getcode')
