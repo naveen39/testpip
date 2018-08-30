@@ -7,7 +7,7 @@
 {% block content %}
  <html>
 	<head>
-	<script src="https://mylightningdomaintrainee-dev-ed.my.salesforce.com/lightning/lightning.out.js"></script>
+	
 		<script>
 		
 		/*var access_token = {{ access_token|tojson }};
@@ -51,8 +51,9 @@
         <script>
 		alert('entered');
           var url = {{ instance_url|tojson }};
-          var token = "Bearer "+{{ access_token|tojson }};
+          var token = "Bearer "+{{access_token}};
           console.log(token);
+		  alert('token');
             $Lightning.use("c:helloApp", function() {
                   $Lightning.createComponent("c:helloCmp", {},
                      "leaderboard",
