@@ -52,8 +52,8 @@
         <script>
 		alert('entered');
           var url = {{ instance_url|tojson }};
-		  //url=url.replace("my.salesforce", "lightning.force");
-          var token = {{ access_token|tojson }};
+		  url=url.replace("my.salesforce", "lightning.force");
+          var token = "OAuth "+{{ access_token|tojson }};
           console.log(token);
             $Lightning.use("c:helloApp", function() {
                   $Lightning.createComponent("c:helloCmp", {},
