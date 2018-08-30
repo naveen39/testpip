@@ -283,7 +283,7 @@ def getcode():
                   accounts(session['username'])
                   return render_template('lightningout.html',success='Connected Successfully',instance_url=instance_url,access_token=access_token)
               else:
-                  return render_template('home.html',error=str(response.text))
+                  return render_template('lightningout.html',error=str(response.text))
           return render_template('home.html',error=str(response.text))
       
         
