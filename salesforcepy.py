@@ -289,7 +289,7 @@ def getcode():
     except Exception as e:
         return render_template('home.html',error=str(e))
         
-    #return render_template('temp.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found')
+    #return render_template('lightningout.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found')
     #return "hello"+str(code)
   
 #@app.route('/access_token',methods = ['get','POST'])
@@ -425,7 +425,7 @@ def accounts(name=None):
             print('error block \n')
             return generate_token(instance_url,refresh_token,query)
     else:
-        return render_template('temp.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found',instance_url=instance_url,access_token=access_token)
+        return render_template('lightningout.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found',instance_url=instance_url,access_token=access_token)
     
             
 def generate_token(instance_url,refresh_token,query):
@@ -470,11 +470,11 @@ def generate_token(instance_url,refresh_token,query):
     #pprint(ac_data['records'],ac_data['totalSize'])
     #return '\n\nac_data\n'+Ac_response.text
     print('-----\n\n after')
-    return render_template('temp.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found',instance_url=instance_url,access_token=access_token)
-    #return render_template('temp.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found')
+    return render_template('lightningout.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found',instance_url=instance_url,access_token=access_token)
+    #return render_template('lightningout.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found')
     #return redirect(url_for('accounts'))
     #return 'ac_data'+Ac_response.text
-    #return render_template('temp.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found')
+    #return render_template('lightningout.html',recs=ac_data['records'],records='Total records : '+str(ac_data['totalSize'])+' records Found')
   else:
     return render_template('home.html',error="Access token exipred you need to reconect salesforce")
   

@@ -1,0 +1,42 @@
+{%if 'username' not in session%}
+     {% extends "layout.html" %}
+{%else%}
+     {% extends "loginlayout.html" %}
+{% endif %}
+  
+{% block content %}
+ <html>
+	<head>
+		<script>
+		<script src="https://mylightningdomaintrainee-dev-ed.my.salesforce.com/lightning/lightning.out.js"></script>
+		var access_token = {{ access_token|tojson }};
+			alert('enetred to test');
+			if(!access_token)
+			{ 
+				alert("Login to Salesforce First!!!");
+			}else{
+				alert('logged in');
+				$Lightning.use("c:helloApp",    // name of the Lightning app
+				function() {                  // Callback once framework and app loaded
+					$Lightning.createComponent(
+						"c:helloCmp", // top-level component of your app
+						{ },                  // attributes to set on the component when created
+						"lightningLocator",   // the DOM location to insert the component
+						function(cmp) {
+							// callback when component is created and active on the page
+						}
+					);
+				},
+				'https://mylightningdomaintrainee-dev-ed.my.salesforce.com/',  // Community endpoint
+				access_token
+			);
+			}
+		</script>
+		<body>
+		
+		<div id="lexcontainer"/> 
+		</body>
+
+	</head>
+</html>
+{% endblock %}
