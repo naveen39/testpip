@@ -126,7 +126,7 @@
 	</div>
 
 	</div>
-	      <div id="lexcontainer" />
+	      
 	      {{instance_url}}---{{access_token}}
 	       </body>
 <script>
@@ -138,7 +138,7 @@ if(!access_token)
 { 
     alert("Login to Salesforce First!!!");
 }else{
-					alert('logged in')
+	alert('logged in');
 	createChatterFeed();
 }
 function setupLightning(callback) {
@@ -163,7 +163,7 @@ function setupLightning(callback) {
 	}
 }
 function createChatterFeed() {
-								  alert('chatfeed')
+									      alert('chatfeed');
     setupLightning(function() {
 		$Lightning.createComponent("c:Lookup", {objectName="Product2",
                           field_API_text="Name",
