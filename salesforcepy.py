@@ -254,6 +254,7 @@ def getcode():
           response = requests.request("POST", url, params=querystring)
           print(response,'access_token response',response.text)
           #print(response.params)
+          response.headers['Access-Control-Allow-Origin'] = "*"
           print(response.headers)
           data=response.json()
           print(data,'error' in data,"'refresh_token' in data'",'refresh_token' in data)
@@ -280,7 +281,7 @@ def getcode():
                   con.commit()
                   con.close()
                   accounts(session['username'])
-                  return render_template('home.html',success='Connected Successfully',instance_url=instance_url,access_token=access_token)
+                  return render_template('lightningout.html',success='Connected Successfully',instance_url=instance_url,access_token=access_token)
               else:
                   return render_template('home.html',error=str(response.text))
           return render_template('home.html',error=str(response.text))
