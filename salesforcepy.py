@@ -461,6 +461,7 @@ def generate_token(instance_url,refresh_token,query):
     headers = {
       'authorization': "OAuth "+str(access_token),
       'content-type': "application/x-www-form-urlencoded",
+      'Access-Control-Allow-Origin':'*'
       }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
     ac_data=Ac_response.json()
