@@ -254,7 +254,9 @@ def getcode():
           response = requests.request("POST", url, params=querystring)
           print(response,'access_token response',response.text)
           #print(response.params)
-          response.headers['Access-Control-Allow-Origin'] = "*"
+          response.headers['Access-Control-Allow-Origin'] = "*" 
+          response.headers['Access-Control-Allow-Methods']="GET, PUT, POST, DELETE, OPTIONS"
+  
           print(response.headers)
           data=response.json()
           print(data,'error' in data,"'refresh_token' in data'",'refresh_token' in data)
