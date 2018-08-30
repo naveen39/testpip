@@ -406,6 +406,7 @@ def accounts(name=None):
       
     }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
+    Ac_response.headers['Access-Control-Allow-Origin'] = '*'
     ac_data=Ac_response.json()
     
     #print('type(ac_data)',type(ac_data),"\n\n'error' in ac_data,query",'error' in ac_data,query,"\n'errorCode' in ac_data",'errorCode' in ac_data,'\n',ac_data)
