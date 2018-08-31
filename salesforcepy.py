@@ -61,9 +61,7 @@ def home():
         }"""
         headers = {}
         response = requests.request("POST", url, params=querystring)
-        response.header['Access-Control-Allow-Origin]= '*'
-        response.header['Access-Control-Allow-Methods']= 'POST'
-        response.header('Access-Control-Allow-Headers']= 'Content-Type' 
+        
         print(response.url)
         #print(response.params)
         #print(response.headers)
