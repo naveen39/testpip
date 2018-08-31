@@ -59,8 +59,13 @@ def home():
           "Accept-Language": "fr-FR,fr;q=0.8,en-US;q=0.6,en;q=0.4",
           "Accept-Charset": "ISO-8859-1,utf-8;q=0.7,*;q=0.3",
         }"""
-        headers = {}
+        
+        
         response = requests.request("POST", url, params=querystring)
+        h = response.headers
+        h['Access-Control-Allow-Origin'] = '*'
+        h['Access-Control-Allow-Methods'] = "GET, PUT, POST, DELETE, OPTIONS"
+        return response
         
         print(response.url)
         #print(response.params)
@@ -284,12 +289,15 @@ def getcode():
           response = requests.request("POST", url, params=querystring)
           print(response,'access_token response',response.text)
           #print(response.params)
-          
+          h = response.headers
+          h['Access-Control-Allow-Origin'] = '*'
+          h['Access-Control-Allow-Methods'] = "GET, PUT, POST, DELETE, OPTIONS"
+          """return response
           response.headers['Access-Control-Allow-Methods']="GET, PUT, POST, DELETE, OPTIONS"
           response.headers['Access-Control-Allow-Credentials']= "true"
           response.headers['Access-Control-Allow-Headers']="X-SFDC-Request-Id,authorization"
           response.headers['Access-Control-Allow-Methods']= "HEAD, GET, POST, PUT, PATCH, DELETE"
-          response.headers['Access-Control-Allow-Origin']="*" 
+          response.headers['Access-Control-Allow-Origin']="*" """
   
           print(response.headers)
           data=response.json()
