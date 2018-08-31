@@ -406,7 +406,10 @@ def accounts(name=None):
     headers = {
     'authorization': "OAuth "+str(access_token),
     'content-type': "application/x-www-form-urlencoded",
-      'Access-Control-Allow-Origin': "*",
+      'Access-Control-Allow-Credentials': "true",
+      'Access-Control-Allow-Headers': 'X-SFDC-Request-Id,authorization',
+      'Access-Control-Allow-Methods': "HEAD, GET, POST, PUT, PATCH, DELETE",
+      'Access-Control-Allow-Origin':"https://testappltng.herokuapp.com" 
       
     }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
@@ -466,7 +469,10 @@ def generate_token(instance_url,refresh_token,query):
     headers = {
       'authorization': "OAuth "+str(access_token),
       'content-type': "application/x-www-form-urlencoded",
-       'Access-Control-Allow-Origin': "*",    
+      'Access-Control-Allow-Credentials': "true",
+      'Access-Control-Allow-Headers': 'X-SFDC-Request-Id,authorization',
+      'Access-Control-Allow-Methods': "HEAD, GET, POST, PUT, PATCH, DELETE",
+      'Access-Control-Allow-Origin':"https://testappltng.herokuapp.com"  
       }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
     Ac_response.headers['Access-Control-Allow-Origin'] = '*'
