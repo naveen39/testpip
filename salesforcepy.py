@@ -24,6 +24,7 @@ host=rds_config.host
 
 redirect_url='https://staringapp.herokuapp.com/getcode'
 app = Flask(__name__)
+CORS(app)
 app.secret_key = 'any random string'
 con='postgres://'+uname+':'+upwd+'@'+host+':5432/'+dbName
 print(con)
@@ -543,7 +544,7 @@ def generate_token(instance_url,refresh_token,query):
 
 
 if __name__ == '__main__':
-  CORS(app)
+ 
   app.debug = True
   app.secret_key = 'any random string'
   #app.secret_key = 'random string'
