@@ -465,6 +465,10 @@ def generate_token(instance_url,refresh_token,query):
     headers = {
       'authorization': "OAuth "+str(access_token),
       'content-type': "application/x-www-form-urlencoded",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': True,
+      'Access-Control-Expose-Headers': 'FooBar',
+      'Content-Type: text/html'; 'charset=utf-8'
       
       }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
