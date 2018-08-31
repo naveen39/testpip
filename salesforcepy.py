@@ -45,7 +45,16 @@ def home():
         params = {"response_type":"code","client_id":client_id,"redirect_uri":redirect_url}
         url = "https://login.salesforce.com/services/oauth2/authorize"
         querystring = {"redirect_uri":"https://staringapp.herokuapp.com/getcode","client_id":"3MVG9YDQS5WtC11oVIcikfdzsMBHOXFw2S3t38tAgNZFSKA10ews9pMB.mejIcW871MS3uV6z_6CDkCmh7owz","response_type":"code"}
-        response = requests.request("POST", url, params=querystring)
+        headers = {           
+          "Origin": "*",
+          "X-Requested-With": "XMLHttpRequest",
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Encoding": "gzip,deflate,sdch",
+          "Accept-Language": "fr-FR,fr;q=0.8,en-US;q=0.6,en;q=0.4",
+          "Accept-Charset": "ISO-8859-1,utf-8;q=0.7,*;q=0.3",
+        }
+        response = requests.request("POST", url, params=querystring,headers)
         print(response.url)
         #print(response.params)
         #print(response.headers)
@@ -251,7 +260,16 @@ def getcode():
                          "client_secret":"6652060970452995834",
                          "redirect_uri":"https://staringapp.herokuapp.com/getcode"
                          }
-          response = requests.request("POST", url, params=querystring)
+          headers = {           
+          "Origin": "*",
+          "X-Requested-With": "XMLHttpRequest",
+          "Content-Type": "application/json",
+          "Accept": "*/*",
+          "Accept-Encoding": "gzip,deflate,sdch",
+          "Accept-Language": "fr-FR,fr;q=0.8,en-US;q=0.6,en;q=0.4",
+          "Accept-Charset": "ISO-8859-1,utf-8;q=0.7,*;q=0.3",
+          }
+          response = requests.request("POST", url, params=querystring,headers)
           print(response,'access_token response',response.text)
           #print(response.params)
           response.headers['Access-Control-Allow-Origin'] = "*" 
