@@ -61,13 +61,13 @@ def home():
         }"""
         headers = {}
         response = requests.request("POST", url, params=querystring)
-        response.set_header('Access-Control-Allow-Origin', '*')
-        response.set_header('Access-Control-Allow-Methods', 'POST')
-        response.set_header('Access-Control-Allow-Headers', 'Content-Type') 
+        response.header['Access-Control-Allow-Origin]= '*'
+        response.header['Access-Control-Allow-Methods']= 'POST'
+        response.header('Access-Control-Allow-Headers']= 'Content-Type' 
         print(response.url)
         #print(response.params)
         #print(response.headers)
-        return response.text
+        return response
       
     else:
         error='You Should login.'
@@ -286,15 +286,12 @@ def getcode():
           response = requests.request("POST", url, params=querystring)
           print(response,'access_token response',response.text)
           #print(response.params)
-          response.set_header('Access-Control-Allow-Origin', '*')
-          response.set_header('Access-Control-Allow-Methods', 'POST')
-          response.set_header('Access-Control-Allow-Headers', 'Content-Type')
-          """response.headers['Access-Control-Allow-Origin'] = "*" 
+          
           response.headers['Access-Control-Allow-Methods']="GET, PUT, POST, DELETE, OPTIONS"
           response.headers['Access-Control-Allow-Credentials']= "true"
           response.headers['Access-Control-Allow-Headers']="X-SFDC-Request-Id,authorization"
           response.headers['Access-Control-Allow-Methods']= "HEAD, GET, POST, PUT, PATCH, DELETE"
-          response.headers['Access-Control-Allow-Origin']="*" """
+          response.headers['Access-Control-Allow-Origin']="*" 
   
           print(response.headers)
           data=response.json()
