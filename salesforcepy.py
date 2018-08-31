@@ -33,6 +33,7 @@ db = SQLAlchemy(app)
 
 @app.route('/',methods = ['get','POST'])
 def home():
+  
   error=request.args.get('error')
   success=request.args.get('success')
   logout=request.args.get('logout')
@@ -68,7 +69,9 @@ def home():
         return render_template('home.html',error=error)
         
   else:
-    return render_template('home.html',error=error,success=success,logout=logout)
+    instance_url=None
+    access_token=None
+    return render_template('home.html',error=error,success=success,logout=logout,instance_url=instance_url,access_token=access_token)
 
 @app.route('/about')
 def about():
