@@ -406,6 +406,7 @@ def accounts(name=None):
     headers = {
     'authorization': "OAuth "+str(access_token),
     'content-type': "application/x-www-form-urlencoded",
+      'Access-Control-Allow-Origin': "*",
       
     }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
@@ -465,9 +466,7 @@ def generate_token(instance_url,refresh_token,query):
     headers = {
       'authorization': "OAuth "+str(access_token),
       'content-type': "application/x-www-form-urlencoded",
-      'Access-Control-Allow-Origin': "*",
-      'Content-Type: text/html'; "charset=utf-8",
-      
+       'Access-Control-Allow-Origin': "*",    
       }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
     Ac_response.headers['Access-Control-Allow-Origin'] = '*'
