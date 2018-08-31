@@ -57,7 +57,7 @@ def home():
           "Accept-Charset": "ISO-8859-1,utf-8;q=0.7,*;q=0.3",
         }"""
         headers = {}
-        response = requests.request("POST", url, params=querystring,headers)
+        response = requests.request("POST", url, params=querystring)
         print(response.url)
         #print(response.params)
         #print(response.headers)
@@ -273,7 +273,7 @@ def getcode():
           "Accept-Charset": "ISO-8859-1,utf-8;q=0.7,*;q=0.3",
           }"""
           headers = {}
-          response = requests.request("POST", url, params=querystring,headers)
+          response = requests.request("POST", url, params=querystring)
           print(response,'access_token response',response.text)
           #print(response.params)
           response.headers['Access-Control-Allow-Origin'] = "*" 
