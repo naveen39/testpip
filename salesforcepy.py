@@ -59,6 +59,12 @@ def home():
         }"""
         headers = {}
         response = requests.request("POST", url, params=querystring)
+        response.headers['Access-Control-Allow-Origin'] = "*" 
+        response.headers['Access-Control-Allow-Methods']="GET, PUT, POST, DELETE, OPTIONS"
+        response.headers['Access-Control-Allow-Credentials']= "true"
+        response.headers['Access-Control-Allow-Headers']="X-SFDC-Request-Id,authorization"
+        response.headers['Access-Control-Allow-Methods']= "HEAD, GET, POST, PUT, PATCH, DELETE"
+        response.headers['Access-Control-Allow-Origin']="*" 
         print(response.url)
         #print(response.params)
         #print(response.headers)
@@ -284,7 +290,7 @@ def getcode():
           response.headers['Access-Control-Allow-Credentials']= "true"
           response.headers['Access-Control-Allow-Headers']="X-SFDC-Request-Id,authorization"
           response.headers['Access-Control-Allow-Methods']= "HEAD, GET, POST, PUT, PATCH, DELETE"
-          response.headers['Access-Control-Allow-Origin']="https://testappltng.herokuapp.com" 
+          response.headers['Access-Control-Allow-Origin']="*" 
   
           print(response.headers)
           data=response.json()
