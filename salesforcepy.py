@@ -65,7 +65,7 @@ def home():
         print(response.url)
         #print(response.params)
         #print(response.headers)
-        return response
+        return response.text
       
     else:
         error='You Should login.'
