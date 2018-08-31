@@ -256,6 +256,10 @@ def getcode():
           #print(response.params)
           response.headers['Access-Control-Allow-Origin'] = "*" 
           response.headers['Access-Control-Allow-Methods']="GET, PUT, POST, DELETE, OPTIONS"
+          response.headers['Access-Control-Allow-Credentials']= "true"
+          response.headers['Access-Control-Allow-Headers']="X-SFDC-Request-Id,authorization"
+          response.headers['Access-Control-Allow-Methods']= "HEAD, GET, POST, PUT, PATCH, DELETE"
+          response.headers['Access-Control-Allow-Origin']="https://testappltng.herokuapp.com" 
   
           print(response.headers)
           data=response.json()
@@ -476,6 +480,11 @@ def generate_token(instance_url,refresh_token,query):
       }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
     Ac_response.headers['Access-Control-Allow-Origin'] = '*'
+    Ac_response.headers['Access-Control-Allow-Methods']="GET, PUT, POST, DELETE, OPTIONS"
+    Ac_response.headers['Access-Control-Allow-Credentials']= "true"
+    Ac_response.headers['Access-Control-Allow-Headers']="X-SFDC-Request-Id,authorization"
+    Ac_response.headers['Access-Control-Allow-Methods']= "HEAD, GET, POST, PUT, PATCH, DELETE"
+    Ac_response.headers['Access-Control-Allow-Origin']="https://testappltng.herokuapp.com"
     #Ac_response['Access-Control-Allow-Methods'] = get_methods()
     #Ac_response['Access-Control-Max-Age'] = str(max_age)
     ac_data=Ac_response.json()
