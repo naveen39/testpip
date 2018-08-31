@@ -409,15 +409,20 @@ def accounts(name=None):
     
     headers = {
     'authorization': "OAuth "+str(access_token),
-    'content-type': "application/x-www-form-urlencoded",
+    'content-type': "text/html; charset=utf-8",
       'Access-Control-Allow-Credentials': "true",
-      'Access-Control-Allow-Headers': 'X-SFDC-Request-Id,authorization',
       'Access-Control-Allow-Methods': "HEAD, GET, POST, PUT, PATCH, DELETE",
-      'Access-Control-Allow-Origin':"https://testappltng.herokuapp.com" 
+      'Access-Control-Allow-Origin':"*" 
       
     }
     Ac_response = requests.request("GET", finalurl, headers=headers, params=query)
     ac_data=Ac_response.json()
+    Ac_response.headers['Access-Control-Allow-Origin'] = '*'
+    Ac_response.headers['Access-Control-Allow-Methods']="GET, PUT, POST, DELETE, OPTIONS"
+    Ac_response.headers['Access-Control-Allow-Credentials']= "true"
+    Ac_response.headers['Access-Control-Allow-Headers']="X-SFDC-Request-Id,authorization"
+    Ac_response.headers['Access-Control-Allow-Methods']= "HEAD, GET, POST, PUT, PATCH, DELETE"
+    Ac_response.headers['Access-Control-Allow-Origin']="https://testappltng.herokuapp.com"
     
     #print('type(ac_data)',type(ac_data),"\n\n'error' in ac_data,query",'error' in ac_data,query,"\n'errorCode' in ac_data",'errorCode' in ac_data,'\n',ac_data)
     #return 'ac_data'+Ac_response.text
@@ -472,9 +477,8 @@ def generate_token(instance_url,refresh_token,query):
     print('\nfinalurl',finalurl,query)
     headers = {
       'authorization': "OAuth "+str(access_token),
-      'content-type': "application/x-www-form-urlencoded",
+      'content-type': "text/html; charset=utf-8",
       'Access-Control-Allow-Credentials': "true",
-      'Access-Control-Allow-Headers': 'X-SFDC-Request-Id,authorization',
       'Access-Control-Allow-Methods': "HEAD, GET, POST, PUT, PATCH, DELETE",
       'Access-Control-Allow-Origin':"https://testappltng.herokuapp.com"  
       }
