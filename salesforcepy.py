@@ -65,7 +65,7 @@ def home():
         h = response.headers
         h['Access-Control-Allow-Origin'] = '*'
         h['Access-Control-Allow-Methods'] = "GET, PUT, POST, DELETE, OPTIONS"
-        return response
+        #return response
         
         print(response.url)
         #print(response.params)
