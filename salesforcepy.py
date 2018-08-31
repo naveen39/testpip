@@ -2,6 +2,7 @@ from flask import Flask, render_template,request,url_for,redirect,flash,session
 import random
 import os
 import psycopg2
+from flask_cors import CORS
 
 from flask.ext.sqlalchemy import SQLAlchemy
 #from refresh_token import refresh_token,instance_url
@@ -38,8 +39,7 @@ def home():
   success=request.args.get('success')
   logout=request.args.get('logout')
   #sucess=None
-  if request.method == 'POST':
-    
+  if request.method == 'POST':  
       
     if 'username' in session:
         client_id="3MVG9YDQS5WtC11oVIcikfdzsMBHOXFw2S3t38tAgNZFSKA10ews9pMB.mejIcW871MS3uV6z_6CDkCmh7owz"
@@ -543,6 +543,7 @@ def generate_token(instance_url,refresh_token,query):
 
 
 if __name__ == '__main__':
+  CORS(app)
   app.debug = True
   app.secret_key = 'any random string'
   #app.secret_key = 'random string'
