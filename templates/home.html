@@ -67,7 +67,7 @@
 	    <script>
 		alert('entered home');
           var url = {{ instance_url|tojson }};
-		  url=url.replace("my.salesforce", "lightning.force");
+		  //url=url.replace("my.salesforce", "lightning.force");
           var token = {{ access_token|tojson }};
           console.log(token);
 		    if(token){
