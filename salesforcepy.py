@@ -39,6 +39,7 @@ def home():
   logout=request.args.get('logout')
   #sucess=None
   if request.method == 'POST':
+    
       
     if 'username' in session:
         client_id="3MVG9YDQS5WtC11oVIcikfdzsMBHOXFw2S3t38tAgNZFSKA10ews9pMB.mejIcW871MS3uV6z_6CDkCmh7owz"
@@ -59,12 +60,9 @@ def home():
         }"""
         headers = {}
         response = requests.request("POST", url, params=querystring)
-        response.headers['Access-Control-Allow-Origin'] = "*" 
-        response.headers['Access-Control-Allow-Methods']="GET, PUT, POST, DELETE, OPTIONS"
-        response.headers['Access-Control-Allow-Credentials']= "true"
-        response.headers['Access-Control-Allow-Headers']="X-SFDC-Request-Id,authorization"
-        response.headers['Access-Control-Allow-Methods']= "HEAD, GET, POST, PUT, PATCH, DELETE"
-        response.headers['Access-Control-Allow-Origin']="*" 
+        response.set_header('Access-Control-Allow-Origin', '*')
+        response.set_header('Access-Control-Allow-Methods', 'POST')
+        response.set_header('Access-Control-Allow-Headers', 'Content-Type') 
         print(response.url)
         #print(response.params)
         #print(response.headers)
@@ -264,7 +262,9 @@ def getcode():
           error='You Should login to connect to Salesforce'
           return render_template('home.html',error=error)
       else:
+          
           url = "https://login.salesforce.com/services/oauth2/token"
+          
           print('acestoken entered get block')
           querystring = {"code":code,
                          "grant_type":"authorization_code",
@@ -285,12 +285,15 @@ def getcode():
           response = requests.request("POST", url, params=querystring)
           print(response,'access_token response',response.text)
           #print(response.params)
-          response.headers['Access-Control-Allow-Origin'] = "*" 
+          response.set_header('Access-Control-Allow-Origin', '*')
+          response.set_header('Access-Control-Allow-Methods', 'POST')
+          response.set_header('Access-Control-Allow-Headers', 'Content-Type')
+          """response.headers['Access-Control-Allow-Origin'] = "*" 
           response.headers['Access-Control-Allow-Methods']="GET, PUT, POST, DELETE, OPTIONS"
           response.headers['Access-Control-Allow-Credentials']= "true"
           response.headers['Access-Control-Allow-Headers']="X-SFDC-Request-Id,authorization"
           response.headers['Access-Control-Allow-Methods']= "HEAD, GET, POST, PUT, PATCH, DELETE"
-          response.headers['Access-Control-Allow-Origin']="*" 
+          response.headers['Access-Control-Allow-Origin']="*" """
   
           print(response.headers)
           data=response.json()
