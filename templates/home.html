@@ -72,14 +72,16 @@
           console.log(token);
 		    if(token){
 			    alert('token '+token);
-            $Lightning.use("c:helloApp", function() {
-                  $Lightning.createComponent("c:helloCmp", {},
-                     "leaderboard",
-                      function(cmp) {
-					  alert('cmp');
-                         // do some stuff
-                      });
-            },url,'Bearer '+token );
+			    $Lightning.use(
+    'c:helloApp',
+    function(){
+      console.log('W00t! Lightning Out Loaded!');
+      $Lightning.createComponent('c:helloCmp', {}, 'container');
+    },
+    url,
+    token
+  );
+           
 		    }
         </script>
 	   
